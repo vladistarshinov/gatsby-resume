@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { createTheme, ThemeProvider } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
-  
+import Hero from "../components/Hero"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 
@@ -16,7 +16,7 @@ const IndexPage = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      index page
+      <Hero />
     </ThemeProvider>
   )
 }
