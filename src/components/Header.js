@@ -10,58 +10,19 @@ import MenuIcon from "@material-ui/icons/Menu"
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import Divider from "@material-ui/core/Divider"
 import ChevronRightIcon from "@material-ui/icons/ChevronRight"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
 import logo from "../images/header-logo.svg"
 import { StaticImage } from "gatsby-plugin-image"
+import NavLinks from "../constants/navLinks"
 
-const navigationLinks = [
-  {
-    id: 1,
-    name: "Home",
-    href: "/",
-  },
-  {
-    id: 2,
-    name: "About",
-    href: "/about/",
-  },
-  {
-    id: 3,
-    name: "Projects",
-    href: "/projects/",
-  },
-  {
-    id: 4,
-    name: "Blog",
-    href: "/blog/",
-  },
-  {
-    id: 5,
-    name: "Contact",
-    href: "/contact/",
-  },
-]
-
-const useStyles = makeStyles((theme) => ({
-  link: {
-    marginRight: 20,
-    color: "#fff",
-    textDecoration: "none",
-    transition: "0.5s",
-    fontSize: "16px",
-    "&:hover": {
-      color: "#E2B979",
-      opacity: "1",
-    },
-    "&:focus": {
-      boxShadow: "0px 2px #E2B979"
-    }
-  },
+const useStyles = makeStyles(() => ({
   avatar: {
     marginRight: "auto",
     height: 45,
   },
+  links: {
+    display: "inline-flex", 
+    justifyContent: "center"
+  }
 }))
 
 const Header = () => {
@@ -73,17 +34,7 @@ const Header = () => {
         <ToolBar disableGutters>
           <img className={classes.avatar} src={logo} alt="logo" />
           <Hidden xsDown>
-            {navigationLinks.map((item) => (
-              <Link
-                className={classes.link}
-                color="textPrimary"
-                variant="button"
-                underline="none"
-                href={item.href}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <NavLinks styleClass={classes.links}></NavLinks>
           </Hidden>
           <Hidden smUp>
             <IconButton>
@@ -105,21 +56,7 @@ const Header = () => {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {navigationLinks.map((item) => (
-            <ListItem>
-              <Link
-                className={classes.link}
-                color="textPrimary"
-                variant="button"
-                underline="none"
-                href={item.href}
-              >
-                {item.name}
-              </Link>
-            </ListItem>
-          ))}
-        </List>
+        <NavLinks></NavLinks>
       </SwipeableDrawer>
     </AppBar>
   )
