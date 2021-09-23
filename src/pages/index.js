@@ -15,8 +15,10 @@ const darkTheme = createTheme({
 const IndexPage = () => {
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <Hero />
+      <Layout>
+        <CssBaseline />
+        <Hero />
+      </Layout>
     </ThemeProvider>
   )
 }

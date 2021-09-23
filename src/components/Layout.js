@@ -14,7 +14,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <h2>Layout</h2>
+      <Header />
+      {children}
     </>
   )
 }

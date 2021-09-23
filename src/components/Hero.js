@@ -13,7 +13,7 @@ import Hidden from "@material-ui/core/Hidden"
 const useStyles = makeStyles((theme) => ({
   // https://images.unsplash.com/photo-1595520519880-a86c48ea536c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80
   section: {
-    height: "100vh",
+    height: "90vh",
   },
   content: {
     height: "100vh",
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Hero = () => {
-  const styles = useStyles()
+  const classes = useStyles()
 
   const [show, setShow] = useState(false)
   useEffect(() => 
@@ -43,16 +43,16 @@ const Hero = () => {
     , [])
 
   return (
-    <Paper className={styles.section}>
+    <Paper className={classes.section}>
       <StaticImage
-        className={styles.heroImg}
+        className={classes.heroImg}
         src="https://images.unsplash.com/photo-1574610758891-5b809b6e6e2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1512&q=80"
         alt=""
         style={{ position: "absolute" }}
       />
-      <div className={styles.overlay}></div>
-      <Container style={{ height: "100%" }} maxWidth="md">
-        <Grid className={styles.content} container justifyContent="space-between" alignItems="center">
+      <div className={classes.overlay}></div>
+      <Container style={{ height: "100%" }} maxWidth="lg">
+        <Grid className={classes.content} container justifyContent="space-between" alignItems="center">
           <Hidden xsDown>
             <Grid item>
               <Typography variant="h5">developer</Typography>
@@ -60,10 +60,10 @@ const Hero = () => {
           </Hidden>
           <Zoom in={show}>
             <Grid item sm={8}>
-              <Typography component="h1" variant="h3">I'm Vlad</Typography>
-              <Typography variant="h5">Frontend developer</Typography>
+              <Typography component="h1" variant="h3">Vladislav Starshinov</Typography>
+              <Typography variant="h5">Web developer</Typography>
               <Box my={3}>
-                <Button variant="outlined" color="secondary">Write me</Button>
+                <Button variant="outlined" style={{ color: "#E2B979" }}>Write me</Button>
               </Box>
             </Grid>
           </Zoom>
