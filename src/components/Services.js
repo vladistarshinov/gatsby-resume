@@ -1,30 +1,9 @@
 import React from "react"
 import Box from "@material-ui/core/Box"
 import Title from "./Title"
-import { FaCode, FaSketch, FaAndroid } from "react-icons/fa"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
-
-const data = [
-  {
-    id: 1,
-    icon: <FaCode style={{ fontSize: "2rem", marginBottom: "1.5rem" }} />,
-    title: "Web development",
-    text: `I'm baby meditation tofu chillwave, distillery messenger bag thundercats chicharrones kale chips gochujang. Banh mi direct trade marfa salvia.`,
-  },
-  {
-    id: 2,
-    icon: <FaSketch style={{ fontSize: "2rem", marginBottom: "1.5rem" }} />,
-    title: "Web design",
-    text: `I'm baby meditation tofu chillwave, distillery messenger bag thundercats chicharrones kale chips gochujang. Banh mi direct trade marfa salvia.`,
-  },
-  {
-    id: 3,
-    icon: <FaAndroid style={{ fontSize: "2rem", marginBottom: "1.5rem" }} />,
-    title: "App design",
-    text: `I'm baby meditation tofu chillwave, distillery messenger bag thundercats chicharrones kale chips gochujang. Banh mi direct trade marfa salvia.`,
-  },
-]
+import servicesLinks from "../constants/servicesLinks"
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -82,7 +61,7 @@ const Services = () => {
     <Box className="section" >
       <Title title="Services" />
       <div className={classes.sectionCenter}>
-        {data.map(item => 
+        {servicesLinks.map(item => 
           <article key={item.id} className={classes.service}>
             {item.icon}
             <Typography className={classes.service__title} variant="h5">{item.title}</Typography>
