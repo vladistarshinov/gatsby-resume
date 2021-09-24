@@ -2,8 +2,9 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { createTheme, ThemeProvider } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import Hero from "../components/Hero"
 import Layout from "../components/Layout"
+import Hero from "../components/Hero"
+import Services from "../components/Services"
 import SEO from "../components/SEO"
 
 const darkTheme = createTheme({
@@ -18,6 +19,7 @@ const IndexPage = () => {
       <Layout>
         <CssBaseline />
         <Hero />
+        <Services />
       </Layout>
     </ThemeProvider>
   )

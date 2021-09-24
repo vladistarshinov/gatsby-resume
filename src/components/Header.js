@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import ToolBar from "@material-ui/core/ToolBar"
@@ -11,13 +10,12 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import Divider from "@material-ui/core/Divider"
 import ChevronRightIcon from "@material-ui/icons/ChevronRight"
 import logo from "../images/header-logo.svg"
-import { StaticImage } from "gatsby-plugin-image"
 import NavLinks from "../constants/navLinks"
 
 const useStyles = makeStyles(() => ({
   avatar: {
     marginRight: "auto",
-    height: 45,
+    height: 40,
   },
   links: {
     display: "inline-flex", 
@@ -29,7 +27,7 @@ const Header = () => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
   return (
-    <AppBar style={{ height: "6vh", background: "#080512", display: "flex", alignItems: "center" }}>
+    <AppBar style={{ height: "8vh", background: "#080512", display: "flex", alignItems: "center", position: "static" }}>
       <Container maxWidth="lg">
         <ToolBar disableGutters>
           <img className={classes.avatar} src={logo} alt="logo" />
@@ -56,7 +54,7 @@ const Header = () => {
           </IconButton>
         </div>
         <Divider />
-        <NavLinks></NavLinks>
+        <NavLinks />
       </SwipeableDrawer>
     </AppBar>
   )
