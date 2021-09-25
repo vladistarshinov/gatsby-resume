@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
   section: {
     padding: "3rem 0",
   },
+  jobs: {
+    background: "#2c455c"
+  },
   jobs_center: {
     width: "80vw",
     margin: "0 auto",
@@ -135,7 +138,7 @@ const Jobs = () => {
   const { company, position, date, desc } = jobs[value]
   
   return (
-    <Box className={classes.section}>
+    <Box className={`${classes.section} ${classes.jobs}`}>
       <Title title="Опыт работы" />
       <Box className={classes.jobs_center}>
         <Box className={classes.btn_container}>

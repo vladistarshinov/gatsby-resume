@@ -8,7 +8,10 @@ import servicesLinks from "../constants/servicesLinks"
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    padding: "5rem 0"
+    padding: "3rem 0"
+  },
+  services: {
+    background: "#0f3155ad"
   },
   underline: {
     width: "5rem",
@@ -59,7 +62,7 @@ const Services = () => {
   const classes = useStyles()
 
   return (
-    <Box className="section" >
+    <Box className={`${classes.section} ${classes.services}`} >
       <Title title="Services" />
       <div className={classes.sectionCenter}>
         {servicesLinks.map(item => 
