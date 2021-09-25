@@ -1,5 +1,6 @@
 import React from "react"
 import Box from "@material-ui/core/Box"
+import Paper from "@material-ui/core/Paper"
 import Title from "./Title"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   service__title: {
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
   sectionCenter: {
     width: "90vw",
@@ -62,12 +63,12 @@ const Services = () => {
       <Title title="Services" />
       <div className={classes.sectionCenter}>
         {servicesLinks.map(item => 
-          <article key={item.id} className={classes.service}>
+          <Paper key={item.id} className={classes.service}>
             {item.icon}
             <Typography className={classes.service__title} variant="h5">{item.title}</Typography>
             <Box className={classes.underline}></Box>
             <Typography variant="body2">{item.text}</Typography>
-          </article> 
+          </Paper> 
         )}
       </div>
     </Box>

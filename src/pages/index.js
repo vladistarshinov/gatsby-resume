@@ -5,6 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 import Services from "../components/Services"
+import Jobs from "../components/Jobs"
 import SEO from "../components/SEO"
 
 const darkTheme = createTheme({
@@ -20,6 +21,7 @@ const IndexPage = () => {
         <CssBaseline />
         <Hero />
         <Services />
+        <Jobs />
       </Layout>
     </ThemeProvider>
   )

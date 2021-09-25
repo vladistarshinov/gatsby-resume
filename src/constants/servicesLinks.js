@@ -1,7 +1,7 @@
 import React from "react"
 import { FaCode, FaSketch, FaAndroid } from "react-icons/fa"
 
-export const servicesLinks = [
+export default [
   {
     id: 1,
     icon: <FaCode style={{ fontSize: "2rem", marginBottom: "1.5rem" }} />,

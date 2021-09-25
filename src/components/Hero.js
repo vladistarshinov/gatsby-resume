@@ -47,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center"
     },
   },
+  title: {
+    [theme.breakpoints.down('xs')]: {
+      fontSize: "28px"
+    },
+  },
   underline: {
     width: "5rem",
     height: "0.25rem",
@@ -103,7 +108,7 @@ const Hero = () => {
           <Zoom in={show} style={{ margin: "0 auto" }}>
             <Grid item sm={6}>
               <Box className={classes.underline}></Box>
-              <Typography className={classes.desc} component="h1" variant="h4">Vladislav Starshinov</Typography>
+              <Typography className={`${classes.desc} ${classes.title}`} component="h1" variant="h4">Vladislav Starshinov</Typography>
               <Typography className={classes.desc} variant="body2">Web developer</Typography>
               <Box my={3} className={classes.desc}>
                 <Button variant="outlined" style={{ color: "#E2B979" }}>Write me</Button>
