@@ -1,25 +1,36 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
 import Title from "./Title"
 import { makeStyles } from "@material-ui/core/styles"
 import { FaAlignRight } from 'react-icons/fa'
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    padding: "5rem 0"
+    padding: "3rem 0",
   },
   jobs_center: {
     width: "80vw",
     margin: "0 auto",
-    maxWidth: "1170px"
+    maxWidth: "1170px",
+    [theme.breakpoints.up('md')]: {
+      width: "90vw",
+      display: "grid",
+      gridTemplateColumns: "200px 1fr",
+      columnGap: "4rem"
+    }
   },
   btn_container: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    marginBottom: "4rem"
+    marginBottom: "4rem",
+    [theme.breakpoints.up('md')]: {
+      flexDirection: "column",
+      justifyContent: "flex-start",
+    }
   },
   job_btn: {
     background: "transparent",
@@ -31,11 +42,13 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 0.5rem",
     transition: "all 0.3s linear",
     cursor: "pointer",
-    padding: "0.25rem 0",
+    padding: "0.25rem",
     lineHeight: "1",
     "&:hover": {
       color: "#E2B979",
-      boxShadow: "0 2px #E2B979"
+    },
+    [theme.breakpoints.up('md')]: {
+      marginBottom: "1rem",
     }
   },
   active_btn: {
@@ -46,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
     /* min-height: 420px; */
   },
   job__info_position: {
-    fontWeight: "400"
+    fontWeight: "400",
+    marginBottom: "10px"
   },
   job__info_company: {
     textTransform: "uppercase",
@@ -55,10 +69,12 @@ const useStyles = makeStyles((theme) => ({
     opacity: "0.7",
     display: "inline-flex",
     padding: "0.2rem 0.3rem",
-    borderRadius: "0.25rem"
+    borderRadius: "0.25rem",
+    marginBottom: "10px"
   },
   job__date: {
-    letterSpacing: "0.2rem"
+    letterSpacing: "0.2rem",
+    marginBottom: "10px"
   },
   job__desc: {
     display: "grid",
@@ -69,6 +85,23 @@ const useStyles = makeStyles((theme) => ({
   },
   job__icon: {
     color: "#fff"
+  },
+  center_btn: {
+    display: "block",
+    width: "10rem",
+    textAlign: "center",
+    margin: "0 auto",
+    marginTop: "3rem",
+    padding: "0.5rem 0",
+    color: "#fff",
+    textDecoration: "none",
+    border: "1px solid #fff",
+    borderRadius: "20px",
+    transition: "all 0.3s linear",
+    "&:hover": {
+      border: "2px solid #E2B979",
+      color: "#E2B979"
+    }
   }
 }))
 
@@ -102,30 +135,31 @@ const Jobs = () => {
   const { company, position, date, desc } = jobs[value]
   
   return (
-    <Box>
+    <Box className={classes.section}>
       <Title title="Опыт работы" />
       <Box className={classes.jobs_center}>
         <Box className={classes.btn_container}>
           {jobs?.map((item, idx) => {
             return (
-              <button onClick={() => setValue(idx)} className={`${classes.job_btn} ${idx === value && classes.active_btn}`}>{item.company}</button>
+              <Button onClick={() => setValue(idx)} className={`${classes.job_btn} ${idx === value && classes.active_btn}`}>{item.company}</Button>
             )
           })}
         </Box>
-        <article className={classes.job__info}>
-          <h3 className={classes.job__info_position}>{position}</h3>
-          <h4 className={classes.job__info_company}>{company}</h4>
-          <p className={classes.job__date}>{date}</p>
-          {desc.map((elem) => {
+        <Box className={classes.job__info}>
+          <Typography variant="h6" className={classes.job__info_position}>{position}</Typography>
+          <Typography variant="body1" className={classes.job__info_company}>{company}</Typography>
+          <Typography variant="body2" className={classes.job__date}>{date}</Typography>
+          {desc?.map((elem) => {
             return (
               <Box key={elem.id} className={classes.job__desc}>
                 <FaAlignRight className={classes.job__icon}></FaAlignRight>
-                <p>{elem.title}</p>
+                <Typography variant="body2">{elem.title}</Typography>
               </Box>
             )
           })}
-        </article>
+        </Box>
       </Box>
+      <Link to="/about" className={classes.center_btn}>Узнать больше</Link>
     </Box>
   )
 }
