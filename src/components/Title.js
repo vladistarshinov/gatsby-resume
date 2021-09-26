@@ -1,12 +1,16 @@
 import React from "react"
 import Box from "@material-ui/core/Box"
-import Paper from "@material-ui/core/Paper"
+import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
   section__title: {
     marginBottom: "4rem",
     textAlign: "center",
+  },
+  title: {
+    color: "#fff", 
+    marginBottom: "10px"
   },
   underline: {
     width: "5rem",
@@ -23,7 +27,7 @@ const Title = ({ title }) => {
 
   return (
     <Box className={classes.section__title}>
-      <h2>{title}</h2>
+      <Typography variant="h5" className={classes.title}>{title}</Typography>
       <div className={classes.underline}></div>
     </Box>
   )

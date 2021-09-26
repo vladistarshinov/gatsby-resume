@@ -27,7 +27,7 @@ const Header = () => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
   return (
-    <AppBar style={{ height: "8vh", background: "#080512", display: "flex", alignItems: "center", position: "static" }}>
+    <AppBar style={{ background: "#080512", display: "flex", alignItems: "center", position: "static" }}>
       <Container maxWidth="lg">
         <ToolBar disableGutters>
           <img className={classes.avatar} src={logo} alt="logo" />

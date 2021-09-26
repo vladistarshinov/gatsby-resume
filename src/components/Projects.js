@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, graphql, useStaticQuery } from "gatsby"
+import React from 'react'
+import { Link } from "gatsby"
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
@@ -129,43 +129,13 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-const query = graphql`
-  {
-    allStrapiProjects(filter: {featured: {eq: true}}) {
-      nodes {
-        id
-        title
-        description
-        githubUrl
-        url
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        tag {
-          id
-          title
-        }
-      }
-    }
-  }
-`
 
-
-const Projects = () => {
-  const data = useStaticQuery(query)
+const Projects = ({projects, title}) => {
   const classes = useStyles()
-
-  const {
-    allStrapiProjects: { nodes: projects }
-  } = data
   
   return (
     <Box className={`${classes.section} ${classes.projects}`}>
-      <Title title="Проекты" />
+      <Title title={title} />
       <Box className={classes.projects_center}>
         {projects.map((project, idx) => {
           const {id, description, title, githubUrl, tag, url, image} = project
@@ -173,24 +143,24 @@ const Projects = () => {
             <Box key={id} className={classes.project}>
               <Image className={classes.project__img} fluid={image.childImageSharp.fluid} />
               <Box className={classes.project__info}>
-                <span className={classes.project__number}>{idx + 1}</span>
-                <h3 className={classes.project__title}>{title}</h3>
-                <p className={classes.project__desc}>{description}</p>
-                <div className={classes.project__tags}>
+                <Box className={classes.project__number}>{idx + 1}</Box>
+                <Typography variant="h5" className={classes.project__title}>{title}</Typography>
+                <Typography variant="body2" className={classes.project__desc}>{description}</Typography>
+                <Box className={classes.project__tags}>
                   {tag.map(item => {
                     return (
                       <span key={item.id} className={classes.project__tags_title}>{item.title}</span>
                     )
                   })}
-                </div>
-                <div className={classes.project__links}>
-                  <a href={githubUrl}>
+                </Box>
+                <Box className={classes.project__links}>
+                  <Link href={githubUrl}>
                     <FaGithubSquare className={classes.project__icon} />
-                  </a>
-                  <a href={url}>
+                  </Link>
+                  <Link href={url}>
                     <FaShareSquare className={classes.project__icon} />
-                  </a>
-                </div>
+                  </Link>
+                </Box>
               </Box>
             </Box>
           )
