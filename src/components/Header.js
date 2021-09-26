@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     height: 40,
   },
   links: {
-    display: "inline-flex", 
+    display: "flex", 
     justifyContent: "center"
   }
 }))

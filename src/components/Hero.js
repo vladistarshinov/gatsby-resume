@@ -14,7 +14,7 @@ import Image from "gatsby-image"
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    height: "100vh",
+    height: "90vh",
   },
   content: {
     zIndex: 100,
@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
   },
   overlay: {
     backgroundColor: "rgba(0,0,0,0.25)",
-    height: "100vh",
+    height: "90vh",
     width: "100vw",
     position: "absolute",
     zIndex: 3,
   },
   img: {
-    height: "100vh",
+    height: "90vh",
     width: "100vw",
     zIndex: 1,
   },
@@ -108,10 +108,10 @@ const Hero = () => {
           <Zoom in={show} style={{ margin: "0 auto" }}>
             <Grid item sm={6}>
               <Box className={classes.underline}></Box>
-              <Typography className={`${classes.desc} ${classes.title}`} component="h1" variant="h4">Vladislav Starshinov</Typography>
-              <Typography className={classes.desc} variant="body2">Web developer</Typography>
+              <Typography className={`${classes.desc} ${classes.title}`} component="h1" variant="h4">Владислав Старшинов</Typography>
+              <Typography className={classes.desc} variant="body2">Веб-разработчик</Typography>
               <Box my={3} className={classes.desc}>
-                <Button variant="outlined" style={{ color: "#E2B979" }}>Write me</Button>
+                <Button variant="outlined" style={{ color: "#E2B979" }}>Подробнее</Button>
               </Box>
             </Grid>
           </Zoom>

@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
-import Services from "../components/Services"
+import Education from "../components/Education"
 import Jobs from "../components/Jobs"
 import Portfolio from "../components/Portfolio"
 import SEO from "../components/SEO"
@@ -21,9 +21,9 @@ const IndexPage = () => {
       <Layout>
         <CssBaseline />
         <Hero />
-        <Services />
         <Jobs />
         <Portfolio />
+        <Education />
       </Layout>
     </ThemeProvider>
   )

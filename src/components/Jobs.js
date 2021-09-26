@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "3rem 0",
   },
   jobs: {
-    background: "#2c455c"
+    background: "#1e3c57"
   },
   jobs_center: {
     width: "80vw",
@@ -144,7 +144,7 @@ const Jobs = () => {
         <Box className={classes.btn_container}>
           {jobs?.map((item, idx) => {
             return (
-              <Button onClick={() => setValue(idx)} className={`${classes.job_btn} ${idx === value && classes.active_btn}`}>{item.company}</Button>
+              <Button key={item.id} onClick={() => setValue(idx)} className={`${classes.job_btn} ${idx === value && classes.active_btn}`}>{item.company}</Button>
             )
           })}
         </Box>

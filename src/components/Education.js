@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "3rem 0"
   },
   services: {
-    background: "#0f3155ad"
+    background: "#010f1e99"
   },
   underline: {
     width: "5rem",
@@ -58,12 +58,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const Services = () => {
+const Education = () => {
   const classes = useStyles()
 
   return (
     <Box className={`${classes.section} ${classes.services}`} >
-      <Title title="Services" />
+      <Title title="Образование" />
       <div className={classes.sectionCenter}>
         {servicesLinks.map(item => 
           <Paper key={item.id} className={classes.service}>
@@ -78,4 +78,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default Education

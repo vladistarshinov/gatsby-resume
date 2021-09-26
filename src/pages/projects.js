@@ -2,6 +2,14 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Projects from "../components/Projects"
 import Layout from "../components/Layout"
+import { createTheme, ThemeProvider } from "@material-ui/core"
+import CssBaseline from "@material-ui/core/CssBaseline"
+
+const darkTheme = createTheme({
+  palette: {
+    type: "dark"
+  }
+})
 
 const query = graphql`
   {
@@ -35,9 +43,12 @@ const ProjectsPage = () => {
   } = data
   
   return (
-    <Layout>
-      <Projects projects={projects} title="Все проекты"></Projects>
-    </Layout>
+    <ThemeProvider theme={darkTheme}>
+      <Layout>
+        <CssBaseline />
+        <Projects projects={projects} title="Все проекты"></Projects>
+      </Layout>
+    </ThemeProvider>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
@@ -8,27 +8,27 @@ import { makeStyles } from "@material-ui/core/styles"
 const navigationLinks = [
   {
     id: 1,
-    name: "Home",
+    name: "Главная",
     href: "/",
   },
   {
     id: 2,
-    name: "About",
+    name: "Обо мне",
     href: "/about/",
   },
   {
     id: 3,
-    name: "Projects",
+    name: "Портфолио",
     href: "/projects/",
   },
   {
     id: 4,
-    name: "Blog",
+    name: "Блог",
     href: "/blog/",
   },
   {
     id: 5,
-    name: "Contact",
+    name: "Контакты",
     href: "/contact/",
   },
 ]
@@ -38,16 +38,15 @@ const useStyles = makeStyles(() => ({
   link: {
     marginRight: 20,
     color: "#fff",
+    width: "70px",
+    textAlign: "center",
     textDecoration: "none",
     transition: "0.5s",
-    fontSize: "16px",
+    fontSize: "14px",
     "&:hover": {
       color: "#E2B979",
       opacity: "1",
     },
-    "&:focus": {
-      boxShadow: "0px 2px #E2B979"
-    }
   },
 }))
 
