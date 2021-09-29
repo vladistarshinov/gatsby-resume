@@ -42,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionCenter: {
     width: "90vw",
-    margin: "0 auto",
-    maxWidth: "1170px",
+    margin: "auto",
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     [theme.breakpoints.down('sm')]: {
