@@ -6,7 +6,7 @@ import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 import Education from "../components/Education"
 import Jobs from "../components/Jobs"
-import Portfolio from "../components/Portfolio"
+import JobProjects from "../components/JobProjects"
 import SEO from "../components/SEO"
 
 const darkTheme = createTheme({
@@ -22,7 +22,7 @@ const IndexPage = () => {
         <CssBaseline />
         <Hero />
         <Jobs />
-        <Portfolio />
+        <JobProjects />
         <Education />
       </Layout>
     </ThemeProvider>

@@ -6,8 +6,8 @@ import logo from "../images/header-logo.svg"
 
 const useStyles = makeStyles(() => ({
   footer: {
-    height: "11rem",
-    background: "#222",
+    height: "8rem",
+    background: "#080512",
     textAlign: "center",
     display: "grid",
     placeItems: "center"
@@ -25,7 +25,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <Box>
         <SocialLinks styleClass={classes.footer__links} />
-        <Box display="inline-flex" alignItems="center" mt={2} mb={3}>
+        <Box display="inline-flex" alignItems="center">
           <img className={classes.avatar} src={logo} alt="logo" />
           <Typography style={{ marginLeft: "20px" }} variant="body1">copyright&copy;{new Date().getFullYear()}</Typography>
         </Box>

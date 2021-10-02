@@ -4,13 +4,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header"
 import Footer from "./Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, withoutFooter }) => {
 
   return (
     <>
       <Header />
       {children}
-      <Footer />
+      {!withoutFooter && <Footer />}
     </>
   )
 }

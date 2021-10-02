@@ -19,7 +19,7 @@ const navigationLinks = [
   {
     id: 3,
     name: "Портфолио",
-    href: "/projects/",
+    href: "/portfolio/",
   },
   {
     id: 4,

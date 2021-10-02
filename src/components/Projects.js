@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
+import Chip from "@material-ui/core/Chip"
 import Title from "./Title"
 import Image from "gatsby-image"
 import { makeStyles } from "@material-ui/core/styles"
@@ -95,10 +96,11 @@ const useStyles = makeStyles((theme) => ({
   project__title: {
     fontWeight: 500,
     color: "#000",
-    marginBottom: "1.5rem",
+    marginBottom: "0.5rem",
     fontSize: "1.5rem"
   },
   project__desc: {
+    margin: "0.5rem 0",
     wordSpacing: "15px",
     color: "grey"
   },
@@ -109,11 +111,10 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-block",
     background: "#E2B979",
     color: "#000",
-    marginRight: "0.5rem",
     padding: "0.25rem",
     margin: "0.25rem 0.5rem",
     borderRadius: "0.25rem",
-    textTransform: "uppercase",
+    //textTransform: "uppercase",
     letterSpacing: "2px",
     fontSize: "0.85rem"
   },
@@ -138,29 +139,41 @@ const Projects = ({projects, title}) => {
       <Title title={title} />
       <Box className={classes.projects_center}>
         {projects.map((project, idx) => {
-          const {id, description, title, githubUrl, tag, url, image} = project
+          const {id, description, title, githubUrl, tag, url, image, position, company} = project
           return (
             <Box key={id} className={classes.project}>
               <Image className={classes.project__img} fluid={image.childImageSharp.fluid} />
               <Box className={classes.project__info}>
                 <Box className={classes.project__number}>{idx + 1}</Box>
                 <Typography variant="h5" className={classes.project__title}>{title}</Typography>
+                {company && <Typography variant="body2" style={{ display: "flex", justifyContent: "flex-end", color: "rgb(194 126 20)", fontWeight: 700 }}>{company}</Typography>}
+                {position && (
+                  position.map(item => {
+                    return (
+                      <Box className={classes.project__tags_title} key={item.id}>{item.role}</Box>
+                    )
+                  })
+                )}
                 <Typography variant="body2" className={classes.project__desc}>{description}</Typography>
                 <Box className={classes.project__tags}>
                   {tag.map(item => {
                     return (
-                      <span key={item.id} className={classes.project__tags_title}>{item.title}</span>
+                      <Chip style={{ marginRight: "10px", marginBottom: "10px" }} key={item.id} label={item.title.toUpperCase()}></Chip>
                     )
                   })}
                 </Box>
-                <Box className={classes.project__links}>
-                  <Link href={githubUrl}>
-                    <FaGithubSquare className={classes.project__icon} />
-                  </Link>
-                  <Link href={url}>
-                    <FaShareSquare className={classes.project__icon} />
-                  </Link>
-                </Box>
+                  <Box className={classes.project__links}>
+                    {githubUrl && (
+                      <Link href={githubUrl}>
+                        <FaGithubSquare className={classes.project__icon} />
+                      </Link>
+                    )}
+                    {url && (
+                      <Link href={url}>
+                        <FaShareSquare className={classes.project__icon} />
+                      </Link>
+                    )}
+                  </Box>
               </Box>
             </Box>
           )

@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
   section: {
     height: "90vh",
   },
+  hero: {
+    backgroundImage: "url(https://images.unsplash.com/photo-1574610758891-5b809b6e6e2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1512&q=80)",
+    backgroundSize: "cover",
+    backgroundPositionY: "-100px",
+  },
   content: {
     zIndex: 100,
     position: "relative",
@@ -90,13 +95,7 @@ const Hero = () => {
     , [])
 
   return (
-    <Paper className={classes.section}>
-      <StaticImage
-        className={classes.img}
-        src="https://images.unsplash.com/photo-1574610758891-5b809b6e6e2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1512&q=80"
-        alt=""
-        style={{ position: "absolute" }}
-      />
+    <Paper className={`${classes.section} ${classes.hero}`}>
       <Box className={classes.overlay}></Box>
       <Container style={{ height: "100%" }} maxWidth="md">
         <Grid className={classes.content} container display="flex" justifyContent="space-between" alignItems="center">

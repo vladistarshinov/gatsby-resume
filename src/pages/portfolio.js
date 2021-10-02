@@ -13,7 +13,7 @@ const darkTheme = createTheme({
 
 const query = graphql`
   {
-    allStrapiProjects {
+    allStrapiProjects(filter: {isJobProject: {eq: false}}) {
       nodes {
         id
         title
@@ -36,7 +36,7 @@ const query = graphql`
   }
 `
 
-const ProjectsPage = () => {
+const PortfolioPage = () => {
   const data = useStaticQuery(query)
   const {
     allStrapiProjects: { nodes: projects }
@@ -46,10 +46,10 @@ const ProjectsPage = () => {
     <ThemeProvider theme={darkTheme}>
       <Layout>
         <CssBaseline />
-        <Projects projects={projects} title="Все проекты"></Projects>
+        <Projects projects={projects} title="Портфолио"></Projects>
       </Layout>
     </ThemeProvider>
   )
 }
 
-export default ProjectsPage
+export default PortfolioPage

@@ -4,7 +4,7 @@ import Projects from "./Projects"
 
 const query = graphql`
   {
-    allStrapiProjects(filter: {featured: {eq: true}}) {
+    allStrapiProjects(filter: {isJobProject: {eq: true}}) {
       nodes {
         id
         title
@@ -22,12 +22,17 @@ const query = graphql`
           id
           title
         }
+        position {
+          id
+          role
+        }
+        company
       }
     }
   }
 `
 
-const Portfolio = () => {
+const JobProjects = () => {
   const data = useStaticQuery(query)
   const {
     allStrapiProjects: { nodes: projects }
@@ -35,9 +40,9 @@ const Portfolio = () => {
 
   return (
     <>
-      <Projects projects={projects} title="Проекты"/>
+      <Projects projects={projects} title="Рабочие проекты"/>
     </>
   )
 }
 
-export default Portfolio
+export default JobProjects
