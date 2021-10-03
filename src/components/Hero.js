@@ -24,7 +24,10 @@ const useStyles = makeStyles((theme) => ({
   content: {
     zIndex: 100,
     position: "relative",
-    paddingTop: "100px"
+    paddingTop: "100px",
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: "10px",
+    },
   },
   overlay: {
     backgroundColor: "rgba(0,0,0,0.25)",
@@ -37,12 +40,17 @@ const useStyles = makeStyles((theme) => ({
     width: "100vw",
     zIndex: 1,
   },
+  wrapper__img: {
+    [theme.breakpoints.down('sm')]: {
+      display: "inline-flex",
+      justifyContent: "center"
+    },
+  },
   heroImg: {
     height: "260px",
     width: "300px",
     [theme.breakpoints.down('sm')]: {
-      height: "210px",
-      width: "250px",
+      marginBottom: "30px"
     },
   },
   desc: {
@@ -98,11 +106,9 @@ const Hero = () => {
       <Box className={classes.overlay}></Box>
       <Container style={{ height: "100%" }} maxWidth="md">
         <Grid className={classes.content} container display="flex" justifyContent="space-between" alignItems="center">
-          <Hidden xsDown>
-            <Grid item>
+            <Grid item display="inline-flex" justifyContent="center" className={classes.wrapper__img}>
               <Image fluid={fluid} className={classes.heroImg} />
             </Grid>
-          </Hidden>
           <Zoom in={show} style={{ margin: "0 auto" }}>
             <Grid item sm={6}>
               <Box className={classes.underline}></Box>

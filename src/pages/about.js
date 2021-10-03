@@ -19,7 +19,10 @@ const darkTheme = createTheme({
 const useStyles = makeStyles((theme) => ({
   section: {
     padding: "3rem 0",
-    height: "90vh"
+    height: "90vh",
+    [theme.breakpoints.down('md')]: {
+      height: "100vh"
+    },
   },
   about: {
     backgroundImage: "url(https://images.unsplash.com/photo-1574610758891-5b809b6e6e2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1512&q=80)",
@@ -31,17 +34,30 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)",
     alignItems: "center",
-    columnGap: "4rem"
+    columnGap: "4rem",
+    [theme.breakpoints.down('md')]: {
+      display: "block",
+    },
   },
   about__img: {
     gridColumn: "1 / span 5",
     marginBottom: 0,
-    marginLeft: 50
+    marginLeft: 50,
+    [theme.breakpoints.down('md')]: {
+      display: "none"
+    },
   },
   about__desc: {
     gridColumn: "6 / -2",
     textAlign: "center",
-    fontSize: "16px"
+    fontSize: "16px",
+    [theme.breakpoints.down('md')]: {
+      marginBottom: "2rem",
+      textAlign: "center",
+      lineHeight: 2,
+      padding: "0 4rem",
+      width: "100vw"
+    },
   }
 }))
 
