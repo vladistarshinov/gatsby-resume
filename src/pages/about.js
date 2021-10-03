@@ -79,7 +79,7 @@ export const query = graphql`
   }
 `
 
-const About = ({data: {about: {nodes}}}) => {
+const AboutPage = ({data: {about: {nodes}}}) => {
   const classes = useStyles()
   const {title, desc, image } = nodes[0]
   return (
@@ -100,4 +100,4 @@ const About = ({data: {about: {nodes}}}) => {
   )
 }
 
-export default About
+export default AboutPage
