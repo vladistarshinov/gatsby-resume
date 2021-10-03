@@ -144,7 +144,7 @@ const Projects = ({projects, title}) => {
             <Box key={id} className={classes.project}>
               <Image className={classes.project__img} fluid={image.childImageSharp.fluid} />
               <Box className={classes.project__info}>
-                <Box className={classes.project__number}>{idx + 1}</Box>
+                <Box className={classes.project__number}>({idx + 1})</Box>
                 <Typography variant="h5" className={classes.project__title}>{title}</Typography>
                 {company && <Typography variant="body2" style={{ display: "flex", justifyContent: "flex-end", color: "rgb(194 126 20)", fontWeight: 700 }}>{company}</Typography>}
                 {position && (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Box from "@material-ui/core/Box"
 import Paper from "@material-ui/core/Paper"
 import Button from "@material-ui/core/Button"
@@ -54,10 +54,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   desc: {
-    [theme.breakpoints.down('sm')]: {
-      display: "flex",
-      justifyContent: "center"
-    },
+    display: "flex",
+    justifyContent: "center",
   },
   title: {
     [theme.breakpoints.down('xs')]: {
@@ -65,15 +63,30 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   underline: {
-    width: "5rem",
     height: "0.25rem",
-    marginBottom: "1.25rem",
+    margin: "1rem 0",
     background: "#E2B979",
     //marginLeft: "auto",
-    marginRight: "auto",
+    textAlign: "center",
     [theme.breakpoints.down('sm')]: {
       marginLeft: "auto",
     },
+  },
+  center_btn: {
+    display: "block",
+    width: "10rem",
+    textAlign: "center",
+    margin: "0 auto",
+    padding: "0.5rem 0",
+    color: "#fff",
+    textDecoration: "none",
+    border: "1px solid #fff",
+    borderRadius: "20px",
+    transition: "all 0.3s linear",
+    "&:hover": {
+      border: "2px solid #E2B979",
+      color: "#E2B979"
+    }
   }
 }))
 
@@ -111,11 +124,11 @@ const Hero = () => {
             </Grid>
           <Zoom in={show} style={{ margin: "0 auto" }}>
             <Grid item sm={6}>
-              <Box className={classes.underline}></Box>
               <Typography className={`${classes.desc} ${classes.title}`} component="h1" variant="h4">Владислав Старшинов</Typography>
+              <Box className={classes.underline}></Box>
               <Typography className={classes.desc} variant="body2">Веб-разработчик</Typography>
               <Box my={3} className={classes.desc}>
-                <Button variant="outlined" style={{ color: "#E2B979" }}>Подробнее</Button>
+                <Link to="/about/" className={classes.center_btn}>Подробнее</Link>
               </Box>
             </Grid>
           </Zoom>
